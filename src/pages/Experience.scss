@@ -1,0 +1,136 @@
+@use '../assets/styles' as *;
+@use "sass:color";
+
+.experience {
+  min-height: 100vh;
+  padding: 6rem 0;
+  background: linear-gradient(
+    135deg,
+    rgba($primary-color, 0.02) 0%,
+    rgba($secondary-color, 0.05) 100%
+  );
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 0% 0%, rgba($secondary-color, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba($primary-color, 0.03) 0%, transparent 50%);
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      position: relative;
+      padding-left: 1.5rem;
+
+      &::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: $secondary-color;
+      }
+    }
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    background: linear-gradient(45deg, $primary-color, $secondary-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  &__item {
+    background: $light-bg;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    h3 {
+      color: $primary-color;
+      font-size: 1.25rem;
+    }
+  }
+
+  &__date {
+    color: $secondary-color;
+    font-weight: 500;
+  }
+
+  &__position {
+    color: $text-color;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__details {
+    list-style-position: inside;
+    color: $text-color;
+
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+
+      &::before {
+        content: "•";
+        color: $secondary-color;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 4rem 0;
+
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .experience-item {
+      padding: 1.5rem;
+      
+      .MuiBox-root {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      .MuiTypography-h5 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+} 
